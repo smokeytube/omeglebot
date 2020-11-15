@@ -59,35 +59,45 @@ def click(image):
         print (image)
         pyautogui.moveTo(start)
         pyautogui.click()
-        #pyautogui.click()
         time.sleep(0.001)
 
 def imageProcess(image):
         print ("imageProcess")
         return pyautogui.locateOnScreen(image, conf5)
 
-shortrand = random.randint(1, 4)
-medrand = random.randint(4, 7)
-longrand = random.randint(6, 10)
-rand = random.randint(1, 3)
-age = random.randint(17, 25)
+
 while True:
-    # msgboxcontent = driver.find_element_by_xpath('/html/body/div[5]/div/div/div[2]/table/tbody/tr/td[2]/div/textarea')
-    # msgboxcontent.click()
-    # msgboxcontent.typewrite("hey")
+    shortrand = random.randint(1, 4)
+    medrand = random.randint(4, 7)
+    longrand = random.randint(6, 10)
+    rand = random.randint(1, 3)
+    age = random.randint(17, 25)
     time.sleep(shortrand)
-    pyautogui.typewrite("hey")
+    if rand == 1:
+        pyautogui.typewrite("hey")
+    elif rand == 2:
+        pyautogui.typewrite("hello")
+    elif rand == 3:
+        pyautogui.typewrite("hi ")
     time.sleep(shortrand)
     pyautogui.press('enter')
     time.sleep(shortrand)
     pyautogui.typewrite("f. " + age)
     time.sleep(shortrand)
     pyautogui.press('enter')
-    pyautogui.typewrite("you?")
+    if rand == 1:
+        pyautogui.typewrite("you?")
+    else:
+        pyautogui.typewrite("hbu?")
     time.sleep(shortrand)
     pyautogui.press('enter')
     time.sleep(shortrand)
-    pyautogui.typewrite("nice lol. If you wanna get together contact me: " + linkcontent)
+    if rand == 1:
+        pyautogui.typewrite("nice lol. If you wanna get together contact me: " + linkcontent)
+    elif rand == 2:
+        pyautogui.typewrite("lol if you want to add me we can chat in private " + linkcontent)
+    elif rand == 3:
+        pyautogui.typewrite("hey why dont we ditch omegle and chat here " + linkcontent)
     time.sleep(longrand)
     pyautogui.press('enter')
     time.sleep(medrand)
