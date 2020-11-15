@@ -70,8 +70,12 @@ while True:
     shortrand = random.randint(1, 4)
     medrand = random.randint(4, 7)
     longrand = random.randint(6, 10)
-    rand = random.randint(1, 3)
     age = random.randint(17, 25)
+
+    rand = random.randint(1, 3)
+    rand2 = random.randint(1, 3)
+    rand3 = random.randint(1, 3)
+    
     time.sleep(shortrand)
     if rand == 1:
         pyautogui.typewrite("hey")
@@ -85,18 +89,18 @@ while True:
     pyautogui.typewrite("f. " + age)
     time.sleep(shortrand)
     pyautogui.press('enter')
-    if rand == 1:
+    if rand2 == 1:
         pyautogui.typewrite("you?")
     else:
         pyautogui.typewrite("hbu?")
     time.sleep(shortrand)
     pyautogui.press('enter')
     time.sleep(shortrand)
-    if rand == 1:
+    if rand3 == 1:
         pyautogui.typewrite("nice lol. If you wanna get together contact me: " + linkcontent)
-    elif rand == 2:
+    elif rand3 == 2:
         pyautogui.typewrite("lol if you want to add me we can chat in private " + linkcontent)
-    elif rand == 3:
+    elif rand3 == 3:
         pyautogui.typewrite("hey why dont we ditch omegle and chat here " + linkcontent)
     time.sleep(longrand)
     pyautogui.press('enter')
