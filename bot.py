@@ -27,7 +27,6 @@ Button(win, text="Start", bg="red", command=win.quit).place(x=10, y=100)
 win.mainloop()
 
 linkcontent = str(linkcontent.get())
-print ("got here")
 # http://criarysm.com/3yeg my adfly link
 if linkcontent == '':
     linkcontent = 'http://criarysm.com/3yeg'
@@ -75,7 +74,7 @@ while True:
     rand = random.randint(1, 3)
     rand2 = random.randint(1, 3)
     rand3 = random.randint(1, 3)
-    
+
     time.sleep(shortrand)
     if rand == 1:
         pyautogui.typewrite("hey")
