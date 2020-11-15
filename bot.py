@@ -5,6 +5,7 @@ import time
 from selenium import webdriver
 import win32api, win32con
 from tkinter import *
+import random
 
 win = Tk()
 win.title("OmegleBot")
@@ -65,26 +66,31 @@ def imageProcess(image):
         print ("imageProcess")
         return pyautogui.locateOnScreen(image, conf5)
 
+shortrand = random.randint(1, 4)
+medrand = random.randint(4, 7)
+longrand = random.randint(6, 10)
+rand = random.randint(1, 3)
+age = random.randint(17, 25)
 while True:
     # msgboxcontent = driver.find_element_by_xpath('/html/body/div[5]/div/div/div[2]/table/tbody/tr/td[2]/div/textarea')
     # msgboxcontent.click()
     # msgboxcontent.typewrite("hey")
-    time.sleep(1)
+    time.sleep(shortrand)
     pyautogui.typewrite("hey")
-    time.sleep(1)
+    time.sleep(shortrand)
     pyautogui.press('enter')
-    time.sleep(3)
-    pyautogui.typewrite("f. 19")
-    time.sleep(3)
+    time.sleep(shortrand)
+    pyautogui.typewrite("f. " + age)
+    time.sleep(shortrand)
     pyautogui.press('enter')
     pyautogui.typewrite("you?")
-    time.sleep(2)
+    time.sleep(shortrand)
     pyautogui.press('enter')
-    time.sleep(3)
+    time.sleep(shortrand)
     pyautogui.typewrite("nice lol. If you wanna get together contact me: " + linkcontent)
-    time.sleep(7)
+    time.sleep(longrand)
     pyautogui.press('enter')
-    time.sleep(3)
+    time.sleep(medrand)
     if imageProcess('newchat.png'):
             click('newchat.png')
     else:
