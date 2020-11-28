@@ -6,10 +6,12 @@ from selenium import webdriver
 import win32api, win32con
 from tkinter import *
 import random
+from datetime import datetime
+
 
 win = Tk()
 win.title("OmegleBot")
-win.geometry("300x150")
+win.geometry("300x250")
 heading = Label(win, text="Input into the feilds")
 
 Label(win, text="Made by Zach").place(x=200, y=10)
@@ -22,16 +24,37 @@ def link():
     print (str(linkcontent.get()))
 Button(win, text="Submit", width=5, height=1, bg="gray", command=link).place(x=10, y=50)
 
-Button(win, text="Start", bg="red", command=win.quit).place(x=10, y=100)
+var1 = IntVar()
+def ratcheck():
+    print (int(var1.get()))
+Checkbutton(win, text="Timeout", variable=var1, command=ratcheck).place(x=200, y=150)
+
+Label(win, text="Enter timeout time (I reccomend ~1 hour):").place(x=10, y=100)
+Label(win, text="24 hour, no colon (ex. 15:40 would be 1540)").place(x=10, y=120)
+timeoutvar = IntVar()
+Entry(win, textvariable=timeoutvar, width=25, bg="gray").place(x=10, y=150)
+def timeout():
+    print (int(timeoutvar.get()))
+Button(win, text="Submit", width=5, height=1, bg="gray", command=timeout).place(x=10, y=170)
+
+Button(win, text="Start", bg="red", command=win.quit).place(x=10, y=220)
 
 win.mainloop()
 
+now = datetime.now()
+
+current_time = now.strftime("%H%M")
+print("Current Time =", current_time)
+print("Current Time in 1 hour =", current_time)
+
+timeoutchat = int(timeoutvar.get())
 linkcontent = str(linkcontent.get())
+timetimeout = int(var1.get())
+print (timeoutchat)
 # http://criarysm.com/3yeg my adfly link
 if linkcontent == '':
     linkcontent = 'http://criarysm.com/3yeg'
-else:
-    linkcontent = str(linkcontent.get())
+
 
 def click(x, y):
     win32api.SetCursorPos((x, y))
@@ -66,6 +89,9 @@ def imageProcess(image):
 
 
 while True:
+    current_time = now.strftime("%H%M")
+    age = ''
+
     shortrand = random.randint(1, 4)
     medrand = random.randint(4, 7)
     longrand = random.randint(6, 10)
@@ -112,3 +138,6 @@ while True:
         pyautogui.press('escape')
         time.sleep(0.2)
         pyautogui.press('escape')
+    if timeoutchat == 1 and timetimeout == 1:
+        driver.close()
+        time.sleep(2175984000)
